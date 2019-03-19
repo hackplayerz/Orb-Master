@@ -2,11 +2,14 @@
 <project version="4">
   <component name="ContentModelStore">
     <e p="C:\Users\gomdo\.Rider2018.3\system\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\gomdo\.Rider2018.3\system\resharper-host\local\Transient\ReSharperHost\v183\SolutionCaches\_Orb-Master.-1781084197.00" t="ExcludeRecursive" />
-    <e p="C:\Users\gomdo\OneDrive\문서\Github\2DRougeLike\Orb-Master" t="IncludeRecursive">
+    <e p="C:\Users\gomdo\.Rider2018.3\system\resharper-host\local\Transient\ReSharperHost\v183\SolutionCaches\_Orb-Master.-734943490.00" t="ExcludeRecursive" />
+    <e p="C:\Users\gomdo\OneDrive\문서\Github\Orb-Master\Orb-Master" t="IncludeRecursive">
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
         <e p="01.Script" t="Include">
+          <e p="Manager" t="Include">
+            <e p="GameManager.cs" t="Include" />
+          </e>
           <e p="Orb" t="Include">
             <e p="OrbController.cs" t="Include" />
           </e>

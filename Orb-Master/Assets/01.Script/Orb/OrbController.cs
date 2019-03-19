@@ -6,22 +6,39 @@ using UnityEngine;
 public class OrbController : MonoBehaviour
 {
 
-    [SerializeField] private float _distance;
-    [SerializeField][Range(0,5f)] private float _speed;
-    [SerializeField] private Transform _targetTrasnform;
+    private float _distance;
+    private Vector3 _targetPosition;
 
-    private Vector3 _rotation;
-    private float _radian = 0;
-
-    void Start () {
+    private float _speed;
+    [HideInInspector] public float radian = 0;
+    
+    void Start ()
+    {
+        transform.position = (transform.position - _targetPosition).normalized * _distance;
         StartCoroutine (MoveCircle ());
     }
 
-    IEnumerator MoveCircle () {
-        while (true) {
+    IEnumerator MoveCircle () 
+    {
+        while (true)
+        {
+            _speed = GameManager.Instance.orbSpeed;
             yield return new WaitForEndOfFrame ();
-            transform.position = new Vector3 (Mathf.Sin (_radian) * _distance, Mathf.Cos (_radian) * _distance, 0);
-            _radian += _speed * Time.fixedDeltaTime;
+            transform.position = new Vector3(Mathf.Sin(radian), Mathf.Cos(radian), 0) * _distance + _targetPosition;
+            radian += _speed * Time.fixedDeltaTime;
         }
+    }
+    
+    /// <summary>
+    /// Set Orb Preset
+    /// </summary>
+    /// <param name="targetPosition">Rotating Target Middle Position</param>
+    /// <param name="distance">From Target distance</param>
+    /// <param name="startDegree">Start Rotation radian</param>
+    public void SetOrb(Vector3 targetPosition, float distance, float startDegree)
+    {
+        _targetPosition = targetPosition;
+        _distance = distance;
+        radian = startDegree * Mathf.Deg2Rad;
     }
 }
